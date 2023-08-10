@@ -6,7 +6,6 @@ import Login from './pages/login/Login';
 import New from './pages/new/New'
 function App() {
   return (
-    <div className="home">
       <BrowserRouter>
         <Routes>
           <Route path="/" >
@@ -26,7 +25,6 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </div>
   );
 
 }
