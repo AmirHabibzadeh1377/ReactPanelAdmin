@@ -1,11 +1,14 @@
 .navbar {
-    padding: 2rem;
+    padding: 1rem;
 
     .wrapper {
         display: flex;
         align-items: center;
         position: relative;
+
         .right {
+            direction: ltr;
+
             .items {
                 margin-left: 1rem;
 
@@ -13,36 +16,87 @@
                     display: inline-block;
                     cursor: pointer;
                     margin-right: 1rem;
+                    position: relative;
 
-                    .icon{
-                        font-size: 2rem;
+                    .icon {
+                        font-size: 2.8rem;
+                    }
+
+                    .Counter {
+                        position: absolute;
+                        right: .2rem;
+                        padding-left: .2rem;
+                        padding-right: .2rem;
+                        font-size: 1rem;
+                        background-color: red;
+                        border-radius: 50%;
+                        text-align: center;
+                        font-weight: bold;
+                        color: white;
+                    }
+
+                    .avatar {
+                        width: 4rem;
+                        height: 4rem;
+                        border-radius: 50%;
+                    }
+
+                    .active {
+                        display: block !important;
+                    }
+
+                    .languageItems {
+                        position: absolute;
+                        font-size: 1.6rem;
+                        font-weight: bold;
+                        padding: 1rem;
+                        right: 50%;
+                        transform: translateX(50%);
+                        background-color: whitesmoke;
+                        top: 2.7rem;
+                        display: none;
+                        transition: all 3s ease-in-out;
+                        .languageItem{
+                            margin-bottom: 1rem;
+                            text-align: end;
+                        }
                     }
                 }
             }
         }
 
-        .left{
+        .left {
             position: absolute;
             left: 20rem;
 
-            .search{
+            .search {
                 position: relative;
-                input{
-                    border:transparent;
+                border: .1rem solid gray;
+
+                input {
+                    border: none;
                     width: 30rem;
-                    border-bottom: .1rem solid gray;
+                    // border-bottom: .1rem solid gray;
                     font-size: 1.6rem;
                     padding: 1rem;
                     padding-right: 5rem;
+                    outline: none;
+                    background-color: transparent;
+                    color: #999;
+
+                    &::placeholder {
+                        font-size: 2rem;
+                    }
                 }
-                .icon{
+
+                .icon {
                     position: absolute;
-                    top:50%;
+                    top: 50%;
                     transform: translateY(-50%);
                     font-size: 4rem;
-                    right:.1rem;
+                    right: .1rem;
                     color: lightgray;
-                    cursor:pointer;
+                    cursor: pointer;
                 }
             }
         }

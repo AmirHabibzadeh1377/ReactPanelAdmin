@@ -8,6 +8,13 @@ html{
         flex: 6;
     }
 
+    .widgets{
+        font-size: 1.6rem;
+        display: flex;
+        padding: 2rem;
+        gap: 2rem;
+    }
+
 hr{
     height: 0;
     border: .5px solid lightgray;
