@@ -5,6 +5,7 @@ import './home.scss'
 import Widget from '../../component/widget/Widget';
 import Fetured from '../../component/fetured/Fetured';
 import Chart from '../../component/chart/Chart';
+import UserTable from '../../component/table/UserTable';
 const Home = () => {
   return (
     <div className='home'>
@@ -24,6 +25,7 @@ const Home = () => {
         </div>
         <div className="listContainer">
           <div className="listTitle">آخرین تراکنش ها</div>
+          <UserTable/>
         </div>
       </div>
     </div>

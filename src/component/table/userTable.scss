@@ -1,0 +1,19 @@
+.tableContainer {
+    .tableHead{
+        font-size: 2rem;
+        font-weight: bolder;
+        color: gray;
+    }
+    .tableCell{
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: rgb(153, 153, 153);
+    }
+    .cellWrapper{
+        display: flex;
+        img{
+            width: 3.2rem;
+            height: 3.2rem;
+        }
+    }
+}
