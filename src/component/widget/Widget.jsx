@@ -4,6 +4,7 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
+import { colors } from '@mui/material';
 const Widget = ({ type }) => {
 
     let data ={};
@@ -13,7 +14,10 @@ const Widget = ({ type }) => {
                 title: "تعداد کاربران",
                 counter: 2145,
                 link: "نمایش تمام کاربران",
-                icon: <PersonOutlineOutlinedIcon className="icon" />,
+                icon: <PersonOutlineOutlinedIcon className="icon" style={{
+                    color:"crimson",
+                    backgroundColor:"rgba(255,0,0,.2)"
+                }} />,
                 isMoney :false,
                 percentage :20
             };
@@ -23,7 +27,11 @@ const Widget = ({ type }) => {
                 title: "تعداد سفارشات این ماه",
                 counter: 300,
                 link: "نمایش تمام فاکتور ها",
-                icon: <ShoppingCartOutlinedIcon className='icon' />,
+                icon: <ShoppingCartOutlinedIcon className='icon'
+                style={{
+                    color:"goldenrod",
+                    backgroundColor:"rgba(218,165,32,.2)"
+                }} />,
                 isMoney:false,
                 percentage:23
             };
@@ -33,7 +41,11 @@ const Widget = ({ type }) => {
                 title: "خالص درآمد ماه جاری شرکت",
                 counter: 500000000,
                 link: "نمایش جزئیات درآمدی شرکت",
-                icon: <MonetizationOnOutlinedIcon className='icon' />,
+                icon: <MonetizationOnOutlinedIcon className='icon'
+                style={{
+                    color:"green",
+                    backgroundColor:"rgba(0,0,128,.2)"
+                }} />,
                 isMoney:true,
                 percentage:50
             };
@@ -43,7 +55,11 @@ const Widget = ({ type }) => {
                 title: "موجودی حساب شرکت",
                 counter: 2000000000,
                 link: "نمایش ریز موجودی حساب شرکت",
-                icon: <AccountBalanceWalletOutlinedIcon className='icon' />,
+                icon: <AccountBalanceWalletOutlinedIcon className='icon' 
+                style={{
+                    color:"purple",
+                    backgroundColor:"rgba(128,0,128,.2)"
+                }}/>,
                 isMoney:true,
                 percentage:10
             };

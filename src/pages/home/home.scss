@@ -1,22 +1,41 @@
-html{
+html {
     font-size: 10px;
 }
-.home{
+
+.home {
     display: flex;
     direction: rtl;
-    .homeContainer{
+
+    .homeContainer {
         flex: 6;
     }
 
-    .widgets{
+    .widgets  ,.charts{
         font-size: 1.6rem;
         display: flex;
         padding: 2rem;
         gap: 2rem;
     }
 
-hr{
-    height: 0;
-    border: .5px solid lightgray;
-}
+    .charts{
+        padding: .5rem 2rem;
+    }
+    hr {
+        height: 0;
+        border: .5px solid lightgray;
+    }
+    .listContainer{
+        -webkit-box-shadow: .2rem .4rem 1rem .1rem rgba(0, 0, 0, .47);
+        box-shadow: .2rem .4rem 1rem .1rem rgba(201, 201, 201, .47);
+        border-radius: 1rem;
+        padding: 2rem;
+        margin: 2rem;
+
+        .listTitle{
+            font-weight: 500;
+            font-size: 1.8rem;
+            color: gray;
+            margin-bottom: 1.5rem;
+        }
+    }
 }
