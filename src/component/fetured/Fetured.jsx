@@ -36,7 +36,7 @@ const Fetured = () => (
           <div className="itemTitle">سالانه</div>
           <div className="itemResult negative">
             <KeyboardArrowDownIcon className='icon'/>
-            <div className="resultAmount">-20,000,000 <span className='iranUnit'>تومان</span></div>
+            <div className="resultAmount">20,000,000- <span className='iranUnit'>تومان</span></div>
           </div>
         </div>
       </div>

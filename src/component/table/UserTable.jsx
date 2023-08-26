@@ -7,9 +7,11 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "./userTable.scss";
+import Loading from '../loading/Loading'
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
+  const [loaded, setLoaded] = useState(false);
   const newList = [];
   const fetchUserApi = async () => {
     const userResponse = await fetch(
@@ -56,10 +58,11 @@ const UserTable = () => {
                   imageUrl: photo.url,
                   imageTitle: photo.title,
                 })
-               if(newList.length == 10){
-                
-                 setUsers(newList);
-               }
+                if (newList.length == 10) {
+
+                  setUsers(newList);
+                  setLoaded(true)
+                }
               });
             });
           });
@@ -68,63 +71,69 @@ const UserTable = () => {
     });
   }, []);
   return (
-    <TableContainer component={Paper} className="tableContainer">
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="right" className="tableHead">
-              نام
-            </TableCell>
-            <TableCell align="right" className="tableHead">
-              تصویر
-            </TableCell>
-            <TableCell align="right" className="tableHead">
-              نام کاربری
-            </TableCell>
-            <TableCell align="right" className="tableHead">
-              ایمیل
-            </TableCell>
-            <TableCell align="right" className="tableHead">
-              آدرس پستی
-            </TableCell>
-            <TableCell align="right" className="tableHead">
-              کد پستی
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {users.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell
-                align="right"
-                className="tableCell"
-                component="th"
-                scope="row"
-              >
-                {row.name}
-              </TableCell>
-              <TableCell>
-                <div className="cellWrapper">
-                  <img src={row.imageUrl} alt={row.imageTitle} />
-                </div>
-              </TableCell>
-              <TableCell align="right" className="tableCell">
-                {row.username}
-              </TableCell>
-              <TableCell align="right" className="tableCell">
-                {row.email}
-              </TableCell>
-              <TableCell align="right" className="tableCell">
-                {row.city}
-              </TableCell>
-              <TableCell align="right" className="tableCell">
-                {row.zipcode}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <>
+      {
+        !loaded ? <Loading /> :
+          <TableContainer component={Paper} className="tableContainer">
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell align="right" className="tableHead">
+                    نام
+                  </TableCell>
+                  <TableCell align="right" className="tableHead">
+                    تصویر
+                  </TableCell>
+                  <TableCell align="right" className="tableHead">
+                    نام کاربری
+                  </TableCell>
+                  <TableCell align="right" className="tableHead">
+                    ایمیل
+                  </TableCell>
+                  <TableCell align="right" className="tableHead">
+                    آدرس پستی
+                  </TableCell>
+                  <TableCell align="right" className="tableHead">
+                    کد پستی
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {users.map((row) => (
+                  <TableRow key={row.id}>
+                    <TableCell
+                      align="right"
+                      className="tableCell"
+                      component="th"
+                      scope="row"
+                    >
+                      {row.name}
+                    </TableCell>
+                    <TableCell>
+                      <div className="cellWrapper">
+                        <img src={row.imageUrl} alt={row.imageTitle} />
+                      </div>
+                    </TableCell>
+                    <TableCell align="right" className="tableCell">
+                      {row.username}
+                    </TableCell>
+                    <TableCell align="right" className="tableCell">
+                      {row.email}
+                    </TableCell>
+                    <TableCell align="right" className="tableCell">
+                      {row.city}
+                    </TableCell>
+                    <TableCell align="right" className="tableCell">
+                      {row.zipcode}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+
+      }
+    </>
   );
 };
 
