@@ -22,7 +22,7 @@ const Navbar = () => {
     }
     // languageItems.classList.add()
   }
-  return (
+  return (<>
     <div className='navbar'>
       <div className="wrapper">
         <div className="right">
@@ -64,6 +64,8 @@ const Navbar = () => {
         </div>
       </div>
     </div>
+    <hr />
+    </>
   )
 }
 

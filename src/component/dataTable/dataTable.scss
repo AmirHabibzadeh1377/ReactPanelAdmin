@@ -1,0 +1,24 @@
+.dataTable{
+    margin: 2rem;
+    .dataGrid{
+        font-size: 1.6rem;
+        text-align: right;
+        text-align: justify;
+    }
+    .cellAction{
+        display: flex;
+        gap: 3rem;
+        .viewButton{
+            background-color: goldenrod;
+            color: white;
+            padding: 1rem;
+            border-radius: .5rem;
+            cursor:pointer;
+            transition: .3s;
+
+            &:active{
+                scale: .9;
+            }
+        }
+    }
+}
