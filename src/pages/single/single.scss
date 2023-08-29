@@ -1,0 +1,100 @@
+.single {
+    direction: rtl;
+    display: flex;
+    width: 100%;
+
+    .singleContainer {
+
+        flex: 6;
+
+        .top {
+            display: flex;
+            padding: 2rem;
+            gap: 2rem;
+
+            .right {
+                flex: 1;
+                -webkit-box-shadow: .2rem .4rem 1rem .1rem rgba(0, 0, 0, .47);
+                box-shadow: .2rem .4rem 1rem .1rem rgba(201, 201, 201, .47);
+                border-radius: 1rem;
+                padding: 1rem;
+                position: relative;
+                .editButton {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    color: rgb(146, 1, 146);
+                    background-color: rgba(191, 3, 248, 0.178);
+                    font-size: 1.6rem;
+                    padding: .5rem;
+                    border-top-left-radius: 1rem;
+                    font-weight: 600;
+                    cursor:pointer;
+                    transition: .3s;
+                    &:active{
+                        scale: .9;
+                    }
+                }
+
+                .item {
+                    display: flex;
+                    gap: 2rem;
+                    font-size: 1.6rem;
+
+                    .itemImage {
+                        width: 10rem;
+                        height: 10rem;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    .details{
+                        .itemTitle{
+                            margin-bottom: 1rem;
+                            color: gray;
+                        }
+                        .detailItem{
+                            margin-bottom: 1rem;
+                            font-size: 1.6rem;
+
+                            .itemKey{
+                                font-weight: bold;
+                                color: gray;
+                                margin-left: .5rem;
+                            }
+
+                            .itemValue{
+                                font-weight: 300;
+                                font-size: 1.5rem;
+                            }
+                        }
+                    }
+                }
+
+                .title{
+                    font-size: 1.7rem;
+                    font-weight: bold;
+                    color: rgb(161, 161, 161);
+                }
+            }
+
+            .left {
+                flex: 2;
+            }
+        }
+.bottom{
+    -webkit-box-shadow: .2rem .4rem 1rem .1rem rgba(0, 0, 0, .47);
+    box-shadow: .2rem .4rem 1rem .1rem rgba(201, 201, 201, .47);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem 2rem;
+    .title{
+        margin-bottom: 2rem;
+    }
+}
+        hr {
+            height: 0;
+            border: .5px solid lightgray;
+        }
+    }
+}

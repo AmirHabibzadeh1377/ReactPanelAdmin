@@ -70,12 +70,13 @@ const DataTable = () => {
         const responseJson = await response.json();
         return responseJson;
     }
+
     const actionColumns = [{
         field:"action" , headerName:"Action",width:200 ,renderCell:()=>{
             return (
                 <>
                     <div className='cellAction'>
-                        <div className="viewButton">جزئیات</div>
+                        <div className="viewButton"><a>جزئیات</a></div>
                         <div className="deleteButton">حذف</div>
                     </div>
                 </>
@@ -101,11 +102,11 @@ const DataTable = () => {
                             initialState={{
                                 pagination: {
                                     paginationModel: {
-                                        pageSize: 5,
+                                        pageSize:7,
                                     },
                                 },
                             }}
-                            pageSizeOptions={[5]}
+                            pageSizeOptions={[7]}
                             checkboxSelection
                             disableRowSelectionOnClick
                         />

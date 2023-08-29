@@ -10,11 +10,11 @@ const data = [
   { name: "اسفند", total: 13000000000 },
 ];
 
-const Chart = () => {
+const Chart = ({aspect , chartTitle}) => {
   return (
     <div className='chart'>
-      <div className="title">نمودار فروش 6ماه آخر سال</div>
-      <ResponsiveContainer width="100%" aspect={3 / 1}>
+      <div className="title">{chartTitle}</div>
+      <ResponsiveContainer width="100%" aspect={aspect}>
         <AreaChart width={730} height={250} data={data}
           margin={{ top: 10, right: 30, left: 30, bottom: 0 }}>
           <defs>

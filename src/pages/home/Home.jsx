@@ -21,7 +21,7 @@ const Home = () => {
         </div>
         <div className="charts">
           <Fetured/>
-          <Chart/>
+          <Chart aspect={3/1} chartTitle={"نمودار 6 ماه فروش شرکت"}/>
         </div>
         <div className="listContainer">
           <div className="listTitle">آخرین تراکنش ها</div>
