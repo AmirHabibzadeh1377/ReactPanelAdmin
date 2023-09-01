@@ -5,7 +5,7 @@ import noimage from '../../content/images/no-image-icon-15.png';
 import { useFormik } from 'formik';
 const New = () => {
   const validate = values => {
-    const error = [];
+    const error = {};
     if (!values.name) {
       error.name = "وارد کردن نام الزامی است";
     }
@@ -30,6 +30,8 @@ const New = () => {
     else if (values.phone.length < 11) {
       error.phone = "طول شماره تماس وارد شده کمتر از 11 کاراکتر می باشد";
     }
+
+    return error;
   }
   const formik = useFormik({
     initialValues: {
@@ -39,8 +41,9 @@ const New = () => {
       phone: "",
       zipcode: "",
     },
+    validate,
     onSubmit: values => {
-      alert(values);
+      console.log(values);
     },
   });
   return (
@@ -52,22 +55,36 @@ const New = () => {
           <h1 className='title'>افزودن کاربر جدید</h1>
         </div>
         <div className="bottom">
-          <div className="right"><img src={noimage} alt="" /></div>
+          <div className="right">
+            <img src={noimage} alt="" />
+          </div>
           <div className="left">
             <form onSubmit={formik.handleSubmit} className='newForm'>
-              <label htmlFor="name">نام :</label>
-              <input type="text"
+              <div className="formInput">
+                <img src="" alt="" />
+                <input type="file"
+                  id='name'
+                  name='name'
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.imageUrl} />
+              </div>
+          <div className='formInput'>
+            <label htmlFor="name">نام :</label>
+            <input type="text"
               className='filds'
               id='name'
               name='name'
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.name}
-              />
-              {formik.errors.name ? <div>{formik.errors.name}</div> : null}
+            />
+            {!formik.values.name ? <div className='error'>{formik.errors.name}</div> : null}
+          </div>
 
-              <label htmlFor="userName">نام کاربری:</label>
-              <input 
+          <div className="formInput">
+            <label htmlFor="userName">نام کاربری:</label>
+            <input
               className='filds'
               type="text"
               id='userName'
@@ -75,21 +92,25 @@ const New = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.userName} />
-              {formik.values.userName ? <div>{formik.errors.userName}</div> : null}
+            {!formik.values.userName ? <div className='error'>{formik.errors.userName}</div> : null}
+          </div>
 
-              <label htmlFor="email">ایمیل:</label>
-              <input 
+          <div className="formInput">
+            <label htmlFor="email">ایمیل:</label>
+            <input
               className='filds'
               type="text"
               id='email'
               name='email'
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.email}/>
-              {!formik.values.email ? <div>{formik.errors.eamil}</div> : null}
+              value={formik.values.email} />
+            {!formik.values.email ? <div className='error'>{formik.errors.email}</div> : null}
+          </div>
 
-              <label htmlFor="phone">شماره تماس</label>
-              <input 
+          <div className="formInput">
+            <label htmlFor="phone">شماره تماس</label>
+            <input
               type="text"
               className='filds'
               id='phone'
@@ -97,26 +118,29 @@ const New = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.phone}
-              />
-              {!formik.values.phone ? <div>{formik.errors.phone}</div> : null}
+            />
+            {!formik.values.phone ? <div className='error'>{formik.errors.phone}</div> : null}
+          </div>
+          <div className="formInput">
 
-              <label htmlFor="zipcode">آدرس پستی</label>
-              <input 
+            <label htmlFor="zipcode">آدرس پستی</label>
+            <input
               className='filds'
               type="text"
               id='zipcode'
               name='zipcode'
-              onChange={formik.handleChange} 
+              onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.zipcode}/>
-              {!formik.values.zipcode ? <div>{formik.errors.zipcode}</div>:null}
+              value={formik.values.zipcode} />
+            {!formik.values.zipcode ? <div className='error'>{formik.errors.zipcode}</div> : null}
 
-              <button type='submit'>افزودن</button>
-            </form> 
           </div>
-        </div>
+          <button type='submit'>افزودن</button>
+        </form>
       </div>
     </div>
+      </div >
+    </div >
   )
 }
 
