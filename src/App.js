@@ -4,9 +4,12 @@ import Single from './pages/single/Single';
 import List from './pages/list/List';
 import Login from './pages/login/Login';
 import New from './pages/new/New';
-import {UserColumn,ProductColumn} from './pages/new/UserAndProductColumn';
+import { UserColumn, ProductColumn } from './pages/new/UserAndProductColumn';
+import './style/dark.scss'
+import { dividerClasses } from "@mui/material";
 function App() {
   return (
+    <div className="app dark">
       <BrowserRouter>
         <Routes>
           <Route path="/" >
@@ -15,17 +18,18 @@ function App() {
             <Route path="users">
               <Route index element={<List />} />
               <Route path=":userId" element={<Single />} />
-              <Route path="new" element={<New title="افزودن کاربر جدید" columns={UserColumn} isUser={true}/>} />
+              <Route path="new" element={<New title="افزودن کاربر جدید" columns={UserColumn} isUser={true} />} />
             </Route>
 
           </Route>
           <Route path="products">
             <Route index element={<List />} />
             <Route path=":productId" element={<Single />} />
-            <Route path="new" element={<New title="افزودن محصول جدید" columns={ProductColumn} isUser={false}/>} />
+            <Route path="new" element={<New title="افزودن محصول جدید" columns={ProductColumn} isUser={false} />} />
           </Route>
         </Routes>
       </BrowserRouter>
+    </div>
   );
 
 }
