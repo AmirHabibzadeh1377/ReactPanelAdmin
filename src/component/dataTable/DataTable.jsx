@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import Loading from '../loading/Loading'
+import { Link } from 'react-router-dom'
+
 
 const columns = [
     {
@@ -70,17 +72,25 @@ const DataTable = () => {
         const responseJson = await response.json();
         return responseJson;
     }
-
+    const deleteClickHandle =(e)=>{
+      const id = e.target.dataset.id;
+      setUsers(users.filter(user=> user.id != id))
+    }
     const actionColumns = [{
-        field:"action" , headerName:"Action",width:200 ,renderCell:()=>{
+        field:"action" , headerName:"Action",width:200 ,renderCell:(params)=>{
             return (
-                <>
-                    <div className='cellAction'>
-                        <div className="viewButton"><a>جزئیات</a></div>
-                        <div className="deleteButton">حذف</div>
-                    </div>
-                </>
-            )
+              <>
+                <div className="cellAction">
+                 
+                     <Link to={`/users/${params.row.id}`} style={{textDecoration:"none"}}>
+                      <div className="viewButton">
+                        <a>جزئیات</a>
+                      </div>
+                    </Link>
+                  <div className="deleteButton" data-id={params.row.id} onClick={deleteClickHandle}>حذف</div>
+                </div>
+              </>
+            );
         }
     }]
     useEffect(() => {
@@ -90,31 +100,40 @@ const DataTable = () => {
         })
     }, [])
     return (
-        <>
-            {!loading ? <Loading />
-                :
-                <div className="dataTable">
-                    <Box sx={{ height: 500, width: '100%', fontSize: "1.6rem" }}>
-                        <DataGrid
-                            rows={users}
-                            columns={columns.concat(actionColumns)}
-                            className='dataGrid'
-                            initialState={{
-                                pagination: {
-                                    paginationModel: {
-                                        pageSize:7,
-                                    },
-                                },
-                            }}
-                            pageSizeOptions={[7]}
-                            checkboxSelection
-                            disableRowSelectionOnClick
-                        />
-                    </Box>
+      <>
+        {!loading ? (
+          <Loading />
+        ) : (
+          <div className="dataTable">
+            <div className="add-new">
+              <p>افزودن کاربر جدید</p>
+              <Link to={"new"}>
+                <div className="add-btn">
+                  <a>افزودن</a>
                 </div>
-            }
-        </>
-    )
+              </Link>
+            </div>
+            <Box sx={{ height: 500, width: "100%", fontSize: "1.6rem" }}>
+              <DataGrid
+                rows={users}
+                columns={columns.concat(actionColumns)}
+                className="dataGrid"
+                initialState={{
+                  pagination: {
+                    paginationModel: {
+                      pageSize: 7,
+                    },
+                  },
+                }}
+                pageSizeOptions={[7]}
+                checkboxSelection
+                disableRowSelectionOnClick
+              />
+            </Box>
+          </div>
+        )}
+      </>
+    );
 }
 
 export default DataTable
