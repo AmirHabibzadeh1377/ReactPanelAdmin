@@ -21,27 +21,39 @@
                     }
                 }
             }
-.sidebar{
-    background-color: #111;
-    border-color:#333;
-    .top{
-        .logo{
-            color:#999;
-        }
-    }
-    .center{
-        ul{
-            li{
-                &:hover{
-                    background-color: #333;
+
+            .sidebar {
+                background-color: #111;
+                border-color: #333;
+
+                .top {
+                    .logo {
+                        color: #999;
+                    }
                 }
-                .icon{
-                    color: gray;
+
+                .center {
+                    ul {
+                        li {
+                            &:hover {
+                                background-color: #333;
+                            }
+
+                            .icon {
+                                color: gray;
+                            }
+                        }
+                    }
                 }
             }
-        }
-    }
-}
+            .dataGrid{
+                color: gray;
+                border: none;
+            }
+
+            input{
+                background-color: transparent;
+            }
             hr {
                 border-color: #333;
             }

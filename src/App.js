@@ -7,9 +7,12 @@ import New from './pages/new/New';
 import { UserColumn, ProductColumn } from './pages/new/UserAndProductColumn';
 import './style/dark.scss'
 import { dividerClasses } from "@mui/material";
+import { useContext } from "react";
+import { DarkModeContext } from "./context/DarkModeContext";
 function App() {
+  const {darkMode} = useContext(DarkModeContext);
   return (
-    <div className="app dark">
+    <div className={ darkMode ? "app dark" :"app"}>
       <BrowserRouter>
         <Routes>
           <Route path="/" >

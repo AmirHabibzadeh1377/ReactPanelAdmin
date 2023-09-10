@@ -8,8 +8,10 @@ import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 import ListIcon from '@mui/icons-material/List';
 import avatarImage from '../../content/images/avatar.jpg';
 import { display } from '@mui/system';
+import { useContext } from 'react';
+import { DarkModeContext } from '../../context/DarkModeContext';
 const Navbar = () => {
-
+const {dispatch} = useContext(DarkModeContext)
   
   const ClickHandler=()=>{
     let languageItems = document.querySelector(".languageItems");
@@ -35,7 +37,7 @@ const Navbar = () => {
               </div>
             </div>
             <div className="item">
-              <DarkModeIcon className='icon'/>
+              <DarkModeIcon className='icon' onClick={()=>dispatch({type:"TOGGLE"})}/>
             </div>
             <div className="item">
               <FullscreenExitIcon className='icon'/>
