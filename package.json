@@ -21,6 +21,7 @@
     "react-scripts": "5.0.1",
     "recharts": "^2.8.0",
     "sass": "^1.64.2",
+    "styled-components": "^6.0.8",
     "styled-content-loader": "^1.2.2",
     "web-vitals": "^2.1.4"
   },

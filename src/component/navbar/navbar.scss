@@ -42,20 +42,20 @@
                     }
 
                     .active {
-                        display: block !important;
+                        font-size: 1.6rem !important;
+                        height: auto !important;
+                        padding: 1rem;
                     }
 
                     .languageItems {
                         position: absolute;
-                        font-size: 1.6rem;
                         font-weight: bold;
-                        padding: 1rem;
                         right: 50%;
+                        font-size: 0;
                         transform: translateX(50%);
                         background-color: whitesmoke;
                         top: 2.7rem;
-                        display: none;
-                        transition: all 3s ease-in-out;
+                        transition: all .5s ease-in-out;
                         .languageItem{
                             margin-bottom: 1rem;
                             text-align: end;
